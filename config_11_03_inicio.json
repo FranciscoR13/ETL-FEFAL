@@ -1,0 +1,68 @@
+{
+  "ano":"2024",
+  "file_paths": {
+      "input": "C:/Users/franc/Documents/Estágio/codigo/ETL/data/necessidades-formacao-{ano}.xlsx",
+      "output": "C:/Users/franc/Documents/Estágio/codigo/ETL/teste_10_03/dados_transformados/ETL_{ano}.xlsx",
+      "removed": "C:/Users/franc/Documents/Estágio/codigo/ETL/teste_10_03/dados_removidos/linhas_removidas_{ano}.xlsx",
+      "concelhos": "C:/Users/franc/Documents/Estágio/codigo/ETL/data/Concelhos-Portugal.txt",
+      "freguesias":  "C:/Users/franc/Documents/Estágio/codigo/ETL/data/Fregesias-Portugal.txt"
+  },
+  "columns": {
+    "targets": [
+        "ENTIDADE DO SUBSETOR DA ADMINISTRAÇÃO LOCAL",
+        "DESIGNAÇÃO DA ENTIDADE",
+        "NUT II",
+        "RESPONSÁVEL",
+        "DATA DE INICIO",
+        "DATA DA ULTIMA ACCAO"
+    ],
+    "check_duplicates": "DESIGNAÇÃO DA ENTIDADE",
+    "aliases": {
+        "DESIGNAÇÃO DA ENTIDADE": ["MUNICIPIO DE"]
+    },
+    "entity_type": "ENTIDADE DO SUBSETOR DA ADMINISTRAÇÃO LOCAL",
+    "responsible": "RESPONSÁVEL",
+    "num_formandos": "Nº TOTAL DE FORMANDOS"
+  },
+  "invalid_values": ["ND", "NULL", "NA", "N/A", "NUNCA", "", " "],
+  "ws_title": "ETL-{ano}",
+  "fuzzy_limit": 80,
+  "keywords": {
+      "n_entidades_municipios": 1,
+      "n_entidades_freguesias": 2,
+      "municipio": ["MUNICIPIO", "CAMARA", "MUNICIPAL", "CM "],
+      "freguesia": ["FREGUESIA", "JUNTA DE FREGUESIA", "FREGUESIA", "JUNTA", "UNIAO"],
+      "entity_types": ["COMUNIDADE INTERMUNICIPAL", "SERVICOS MUNICIPALIZADOS", "SETOR EMPRESARIAL LOCAL", "EMPRESAS MUNICIPAIS / INTERMUNICIPAIS", "ENTIDADE DO SUBSETOR DA ADMINISTRAÇÃO LOCAL"],
+      "training": ["formação", "curso"],
+      "comment": ["comentário","sugestões"],
+      "group_time": ["tempo do grupo"],
+      "thematic_areas": ["áreas temáticas"],
+      "continuous_training": ["contínua"],
+      "preference": ["preferência"]
+  },
+  "descriptions": {
+      "comment": "O QUE PRETENDEM SOBRE",
+      "group_time": "TEMPO DO GRUPO",
+      "interest": "INTERESSE",
+      "continuous_training": "FORMAÇÃO CONTÍNUA",
+      "preference": "PREFERÊNCIA (1-6)",
+      "training_course": "FORMAÇÃO/CURSO"
+  },
+  "data_keys": {
+      "submission_date": "DATA DE SUBMISSAO",
+      "start_date": "DATA DE INICIO",
+      "end_date": "DATA DA ULTIMA ACCAO",
+      "submitted": "FOI SUBMETIDO?",
+      "completion_time": "TEMPO DE REALIZAÇÃO"
+  },
+  "default_values": {
+      "empty": "VAZIO",
+      "no": "NAO"
+  },
+  "prefixs":{
+      "municipios": "^\\s*(MUNICIPIO|MUNICÍPIO|CAMARA MUNICIPAL|CM)\\s+DE\\s+",
+      "freguesias": "^\\s*(FREGUESIA|JUNTA DE FREGUESIA|UNIAO DE FREGUESIAS|UNIAO DAS FREGUESIAS)\\s+DE\\s+"       
+  },
+  "trainings": true,
+  "interests": false
+}
