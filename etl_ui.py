@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import psycopg2-binary
+import psycopg2
 import math
 import re
 from streamlit_tags import st_tags
